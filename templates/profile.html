@@ -1,0 +1,333 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - {{user_profile.user.username}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="bg-gray-200">
+
+            <header>
+            <!-- component -->
+ <!-- component -->
+<nav class=" fixed  shadow-md	z-10 bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
+    <!-- logo -->
+    <div class="inline-flex">
+        <a class="" href="/"
+            ><div class="font-bold text-2xl">
+                Djangxel
+            </div>
+           
+        </a>
+    </div>
+
+    <!-- end logo -->
+    
+
+          
+    <!-- search bar -->
+    <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
+        <div class="inline-block">
+            <div class="inline-flex items-center max-w-full">
+                <form action="/search" method="POST">
+                    {% csrf_token %}
+                <div  class="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1" type="button">
+                     <input type="text" name="username" placeholder="Search for username.."  class="block flex-grow flex-shrink overflow-hidden"> 
+                     <button type="submit" class="flex items-center justify-center relative  h-8 w-8 rounded-full">
+                        <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="
+                                display: block;
+                                fill: none;
+                                height: 12px;
+                                width: 12px;
+                                stroke: currentcolor;
+                                stroke-width: 5.33333;
+                                overflow: visible;
+                            "
+                        >
+                            <g fill="none">
+                                <path
+                                    d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+                                ></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <!-- end search bar -->
+
+    <!-- login -->
+    
+        <div class="block">
+            <div class="inline relative">
+                
+                   <a href="/settings"   >  
+                        <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
+                            <img src="{{user_profile.profileimg.url}}" class="bg-gray-200 border border-white rounded-full w-10 h-10">
+                        </div>
+                        
+                       </a>
+                   
+               
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- end login -->
+</nav>
+            </header>
+<!-- updated -->
+
+<div class="flex pt-[100px]">
+     
+    <div class="w-1/5 bg-gray-200 h-screen">
+
+
+    
+       <div class="bg-white shadow-md rounded-md overflow-hidden mx-2 fixed w-1/5">
+    <div class="bg-white shadow-xl rounded-lg py-3">
+        <div class="photo-wrapper p-2">
+
+            <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
+                <img class="w-32 h-32 rounded-full mx-auto" src="{{user_profile.profileimg.url}}" alt="John Doe">
+            </div>
+        </div>
+        <div class="p-2">
+            <h3 class="text-center text-xl text-gray-900 font-medium leading-8">{{user_profile.user.username}} </h3>
+            <div class="text-center text-gray-400 text-xs font-semibold">
+                <p>{{user_profile.bio}}</p>
+            </div>
+            
+		 
+				 
+				 
+<br>
+            <div class="flex justify-center">
+                <a href="/settings" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2">
+                  <svg class="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 14H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1zm8-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7z" clip-rule="evenodd" />
+                  </svg>
+                  Settings
+                </a>
+                <a href="/profile/{{user.username}}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md">
+                  <svg class="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14 17a1 1 0 0 1-.707-.293l-9-9a1 1 0 0 1 0-1.414l9-9A1 1 0 1 1 14.707 3.7L6.414 12l8.293 8.293a1 1 0 0 1-.707 1.707z" clip-rule="evenodd" />
+                  </svg>
+                  Profile
+                </a>
+              </div>
+              
+
+            
+        </div>
+    </div>
+</div>
+
+        <!-- Left column content here -->
+      </div>
+      <div class="w-3/5">
+
+
+        <div class="bg-white shadow-md rounded-md mx-5">
+             <div class=" justify-start gap-3 py-2 mx-3 border-b">
+
+				<h5 style="color: black;"><b> Explore Posts By @{{user_profile.user.username}}</b></h5>
+									 <br>
+
+				<div class="flex justify-center">
+					<a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2">
+					  
+					{% if user_post_length == 0 %}
+					<b>No Post</b> 
+						{% elif user_post_length == 1 %}
+						 <b>{{user_post_length}} Post</b> 
+						{% else %}
+						 <b>{{user_post_length}} Posts</b> 
+						{% endif %}
+					</a>
+				   
+					
+					
+					  <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2">
+					 
+					 {% if user_followers == 0 or user_followers == 1 %}
+						 <b>{{user_followers}} follower</b>
+						{% else %}
+					 <b>{{user_followers}} followers</b>
+						{% endif %}
+	
+					 
+					</a>
+					
+					  <form action="/follow" method="POST">
+						{% csrf_token %}
+						 
+	
+						<a class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2"> <b>{{user_following}} following</b> </a>
+	
+						<input type="hidden" value="{{user.username}}" name="follower" />
+						<input type="hidden" value="{{user_object.username}}" name="user" />
+	
+						{% if user_object.username == user.username %}
+						<a href="/settings" data-ripple="" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2">Account Settings</a>
+						{% else %}
+						<a data-ripple="" ><button type="submit" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2" style="background-color: #ffc0cb; border: #ffc0cb;">{{button_text}}</button></a>
+						{% endif %}
+	 
+					</form>
+					 
+					
+					
+				  </div>
+
+             </div> 
+            </div>
+
+         
+
+
+
+
+ </br>
+        <!-- Center column content here -->
+        {% for post in user_posts %}
+        
+        <div class="bg-white shadow-md rounded-md mx-5">
+
+            <!-- post header-->
+            <div class="flex justify-between items-center px-4 py-3">
+                <div class="flex flex-1 items-center space-x-4">
+                  <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
+                            <img src="{{post.image.url}}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                        </div>
+                  
+                    <span class="block font-semibold "><a href="/profile/{{post.user}}">{{post.user}}</a></span>
+                </div>
+              <div>
+                <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
+                <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
+              
+                    <ul class="space-y-1">
+                
+                      <li> 
+                          <a href="#" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
+                           <i class="uil-trash-alt mr-1"></i>  Delete Post
+                          </a> 
+                      </li>
+                    </ul>
+                
+                </div>
+              </div>
+            </div>
+
+            <div uk-lightbox>
+                <a href="{{post.image.url}}">  
+                    <img src="{{post.image.url}}" width="100%" alt="">
+                </a>
+            </div>
+            
+
+            <div class="py-3 px-4 space-y-3"> 
+               
+                <div class="flex space-x-4 lg:font-bold">
+                    <a href="/like-post?post_id={{post.id}}" class="flex items-center space-x-2">
+                        <div class="p-2 rounded-full text-black">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
+                                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                            </svg>
+                            {% if post.no_of_likes == 0 %}
+                            <p>No likes</p>
+                            {% elif post.no_of_likes == 1 %}
+                            <p>Liked by {{post.no_of_likes}} person</p>
+                            {% else %}
+                            <p>Liked by {{post.no_of_likes}} people</p>
+                            {% endif %}
+                        </div>
+                        
+                    </a>
+                 
+                    <a href="{{post.image.url}}" class="flex items-center space-x-2 flex-1 justify-end" download>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"/></g></svg>
+                        
+                    </a>
+                </div>
+             
+                <p>
+                    <a href="/profile/{{post.user}}"><strong>{{post.user}}</strong></a> {{post.caption}}
+                </p>
+
+               
+
+            </div>
+
+        </div>
+    </br>
+        {% endfor %}
+      </div>
+      <div class="w-1/5 bg-gray-200 h-screen">
+        <!-- Right column content here -->
+
+
+
+        <div class="bg-white  shadow-md rounded-md overflow-hidden mx-2 fixed">
+
+            <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
+                <h2 class="font-semibold text-lg">Users You Can Follow</h2>
+                <!-- <a href="#"> Refresh</a> -->
+            </div>
+           
+            <div class="divide-gray-300 divide-gray-50 divide-opacity-50 divide-y px-4 ">
+
+                {% for suggestion in suggestions_username_profile_list %}
+                <div class="flex items-center justify-between py-3">
+                    <div class="flex flex-1 items-center space-x-4">
+                        <a href="/profile/{{suggestion.user}}">
+                            <img src="{{suggestion.profileimg.url}}" class="bg-gray-200 rounded-full w-10 h-10">
+                        </a>
+                        <div class="flex flex-col">
+                            <span class="block capitalize font-semibold"> {{suggestion.user}} </span>
+                           
+                        </div>
+                    </div>
+                    
+                    <a href="/profile/{{suggestion.user}}" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 "> View</a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+      </div>
+      </div>
+      
+   
+      <footer class="border-t p-4 text-center">
+        Created with ❤️ and 💻
+      </footer>
+      
+      
+</body>
+
+
+</html>

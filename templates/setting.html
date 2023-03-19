@@ -1,0 +1,234 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="bg-gray-200">
+
+            <header>
+            <!-- component -->
+ <!-- component -->
+<nav class=" fixed  shadow-md	z-10 bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
+    <!-- logo -->
+    <div class="inline-flex">
+        <a class="" href="/"
+            ><div class="font-bold text-2xl">
+                Djangxel
+            </div>
+           
+        </a>
+    </div>
+
+    <!-- end logo -->
+    
+
+          
+    <!-- search bar -->
+    <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
+        <div class="inline-block">
+            <div class="inline-flex items-center max-w-full">
+                <form action="/search" method="POST">
+                    {% csrf_token %}
+                <div  class="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1" type="button">
+                     <input type="text" name="username" placeholder="Search for username.."  class="block flex-grow flex-shrink overflow-hidden"> 
+                     <button type="submit" class="flex items-center justify-center relative  h-8 w-8 rounded-full">
+                        <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="
+                                display: block;
+                                fill: none;
+                                height: 12px;
+                                width: 12px;
+                                stroke: currentcolor;
+                                stroke-width: 5.33333;
+                                overflow: visible;
+                            "
+                        >
+                            <g fill="none">
+                                <path
+                                    d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+                                ></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <!-- end search bar -->
+
+    <!-- login -->
+    
+        <div class="block">
+            <div class="inline relative">
+                
+                   <a href="/settings"   >  
+                        <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
+                            <img src="{{user_profile.profileimg.url}}" class="bg-gray-200 border border-white rounded-full w-10 h-10">
+                        </div>
+                        
+                       </a>
+                   
+               
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- end login -->
+</nav>
+            </header>
+<!-- updated -->
+
+<div class="flex pt-[100px]">
+     
+    <div class="w-1/5 bg-gray-200 h-screen">
+
+
+    
+       <div class="bg-white shadow-md rounded-md overflow-hidden mx-2 fixed w-1/5">
+    <div class="bg-white shadow-xl rounded-lg py-3">
+        <div class="photo-wrapper p-2">
+
+            <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
+                <img class="w-32 h-32 rounded-full mx-auto" src="{{user_profile.profileimg.url}}" alt="John Doe">
+            </div>
+        </div>
+        <div class="p-2">
+            <h3 class="text-center text-xl text-gray-900 font-medium leading-8">{{user.username}} </h3>
+            <div class="text-center text-gray-400 text-xs font-semibold">
+                <p>{{user_profile.bio}}</p>
+            </div>
+            <table class="text-xs my-3">
+                <tbody>
+                    <tr>
+                        <td class="px-2 py-2 text-gray-500 font-semibold">Location</td>
+                        <td class="px-2 py-2">{{user_profile.location}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="flex justify-center">
+                <a href="/settings" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md mr-2">
+                  <svg class="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 14H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1zm8-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7z" clip-rule="evenodd" />
+                  </svg>
+                  Settings
+                </a>
+                <a href="/profile/{{user.username}}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md">
+                  <svg class="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14 17a1 1 0 0 1-.707-.293l-9-9a1 1 0 0 1 0-1.414l9-9A1 1 0 1 1 14.707 3.7L6.414 12l8.293 8.293a1 1 0 0 1-.707 1.707z" clip-rule="evenodd" />
+                  </svg>
+                  Profile
+                </a>
+              </div>
+              
+
+            
+        </div>
+    </div>
+</div>
+
+        <!-- Left column content here -->
+      </div>
+      <div class="w-3/5">
+
+     <div class="bg-white shadow-md rounded-md justify-center overflow-hidden mx-5">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+           <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
+               
+               
+                <div class="col-span-2">
+                    <label for=""> Profile Image</label>
+                    <img width="100" height="100" src="{{user_profile.profileimg.url}}" />
+                    <input type="file" name="image" value="" class="shadow-none bg-gray-100">
+                </div>
+                <div class="col-span-2">
+                   
+
+                    <label for="about">Bio</label>  
+                    <textarea id="about" name="bio" rows="3"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{user_profile.bio}}</textarea>
+                </div> 
+                <div class="col-span-2">
+                    <label for=""> Location</label>
+                    <input type="text" name="location" value="{{user_profile.location}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                
+           </div> 
+
+           <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
+               <button class="p-2 px-4 rounded bg-gray-50 text-red-500 border-b shadow-md"> <a href="/">Cancel</a> </button>
+               <button type="submit" class="p-2 px-4 rounded bg-gray-50 border-b shadow-md"> Save </button>
+           </div>
+        </form>
+       </div>
+ 
+      </div>
+      <div class="w-1/5 bg-gray-200 h-screen">
+        <!-- Right column content here -->
+
+
+
+        <div class="bg-white  shadow-md rounded-md overflow-hidden mx-2 fixed">
+
+            <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
+                <h2 class="font-semibold text-lg">Users You Can Follow</h2>
+                <!-- <a href="#"> Refresh</a> -->
+            </div>
+           
+            <div class="divide-gray-300 divide-gray-50 divide-opacity-50 divide-y px-4 ">
+
+                {% for suggestion in suggestions_username_profile_list %}
+                <div class="flex items-center justify-between py-3">
+                    <div class="flex flex-1 items-center space-x-4">
+                        <a href="/profile/{{suggestion.user}}">
+                            <img src="{{suggestion.profileimg.url}}" class="bg-gray-200 rounded-full w-10 h-10">
+                        </a>
+                        <div class="flex flex-col">
+                            <span class="block capitalize font-semibold"> {{suggestion.user}} </span>
+                           
+                        </div>
+                    </div>
+                    
+                    <a href="/profile/{{suggestion.user}}" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 "> View</a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+      </div>
+      </div>
+      
+   
+      <footer class="border-t p-4 text-center">
+        Created with ❤️ and 💻
+      </footer>
+      
+      
+</body>
+
+
+</html>
