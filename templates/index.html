@@ -14,6 +14,7 @@
     
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 
 <body class="bg-gray-200">
@@ -23,7 +24,7 @@
  <!-- component -->
 <nav class=" fixed  shadow-md	z-10 bg-white w-full flex justify-between items-center mx-auto px-8 h-20">
     <!-- logo -->
-    <div class="inline-flex">
+    <div class=" hidden sm:block inline-flex">
         <a class="" href="/"
             ><div class="font-bold text-2xl">
                 Djangxel
@@ -37,7 +38,7 @@
 
           
     <!-- search bar -->
-    <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
+    <div class=" flex-shrink flex-grow-0 justify-start px-2">
         <div class="inline-block">
             <div class="inline-flex items-center max-w-full">
                 <form action="/search" method="POST">
@@ -97,9 +98,9 @@
             </header>
 <!-- updated -->
 
-<div class="flex pt-[100px]">
+<div class="sm:flex pt-[100px]">
      
-    <div class="w-1/5 bg-gray-200 h-screen">
+    <div class="w-1/5 hidden sm:block bg-gray-200 h-screen">
 
 
     
@@ -149,7 +150,7 @@
 
         <!-- Left column content here -->
       </div>
-      <div class="w-3/5">
+      <div class="w-100 sm:w-3/5">
 
 
         <div class="bg-white shadow-md rounded-md mx-5">
@@ -198,7 +199,7 @@
 </div>
  
                         </div>
-                        <div class=" w-[500px] ">
+                        <div class=" sm:w-[500px] ">
                             <input
                             class="w-full bg-gray-200 rounded-full px-3 py-2" name="caption"
                             placeholder="What's on your mind, {{user.username}} ?"
@@ -242,7 +243,7 @@
                             <img src="{{post.image.url}}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
                         </div>
                   
-                    <span class="block font-semibold "><a href="/profile/{{post.user}}">{{post.user}}</a></span>
+                    <span class="block ">By <a href="/profile/{{post.user}}" class="font-semibold ">{{post.user}}</a> on {{post.created_at.date}} at {{post.created_at.time}} </span>
                 </div>
               <div>
                 <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
@@ -305,12 +306,12 @@
     </br>
         {% endfor %}
       </div>
-      <div class="w-1/5 bg-gray-200 h-screen">
+      <div class="sm:w-1/5 w-100 bg-gray-200 h-screen">
         <!-- Right column content here -->
 
 
 
-        <div class="bg-white  shadow-md rounded-md overflow-hidden mx-2 fixed">
+        <div class="bg-white  shadow-md rounded-md overflow-hidden mx-2 sm:fixed">
 
             <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
                 <h2 class="font-semibold text-lg">Users You Can Follow</h2>
