@@ -29,7 +29,7 @@ To run Djangxel on your local machine, you need to have the following software i
     
 2.  Navigate to the project directory:
     
-   ```cd djangxel```
+    ```cd djangxel```
     
 3.  Install the required packages:
     
@@ -71,6 +71,9 @@ To use `Djangxel`, follow these steps:
 4. View your profile page to see your own photos and follower/following lists.
 
 
+
+
+
 ## Contributing
 
 If you want to contribute to Djangxel, please follow these steps:
@@ -82,6 +85,13 @@ If you want to contribute to Djangxel, please follow these steps:
 5. Run the tests to make sure everything works.
 6. Create a pull request to merge your changes into the main branch.
 
+## Authors
+
+- [Ajinkgupta](https://github.com/Ajinkgupta)
+
+## Acknowledgements
+
+DjangXel was inspired by other popular photo-sharing platforms, including Instagram and Flickr.
 
 
 ## License
