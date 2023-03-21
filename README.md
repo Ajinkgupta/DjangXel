@@ -1,2 +1,64 @@
-# DjangXel
- 
+# Djangxel - Photo Sharing Platform
+=================================
+
+Djangxel is a web-based photo-sharing platform built with Django, a high-level Python web framework. It allows users to create accounts, upload and share photos, follow and unfollow other users, and view profiles.
+
+## Prerequisites
+-------------
+
+To run Djangxel on your local machine, you need to have the following software installed:
+
+*   Python 3.6 or higher
+*   pip
+*   Django 4.1.7
+*   asgiref 3.6.0
+*   Pillow 9.4.0
+*   pytz 2022.7.1
+*   sqlparse 0.4.3
+*   django-cors-headers 3.14.0
+*   django-crispy-forms 2.0
+*   djangorestframework 3.12.4
+*   tzdata 2022.7
+
+## Installation
+------------
+
+1.  Clone the repository to your local machine:
+    
+    `git clone https://github.com/ajinkgupta/djangxel.git`
+    
+2.  Navigate to the project directory:
+    
+    `cd djangxel`
+    
+3.  Install the required packages:
+    
+    `pip install -r requirements.txt`
+    
+4.  Run the migrations:
+    
+    `python manage.py migrate`
+    
+5.  Create a superuser account:
+    
+     `python manage.py createsuperuser`
+    
+6.  Start the development server:
+    
+    `python manage.py runserver`
+    
+7.  Open your web browser and go to [http://localhost:8000](http://localhost:8000/).
+    
+
+## Features
+--------
+
+*   User authentication (sign-up/sign-in).
+*   Image upload.
+*   Follow and unfollow other users.
+*   Profile page.
+
+## License
+-------
+
+Djangxel is released under the MIT License. See [LICENSE](https://github.com/ajinkgupta/djangxel/blob/main/LICENSE) for more information.
