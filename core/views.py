@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404 
+from django.urls import reverse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Profile, Post, LikePost, FollowersCount
+from .models import Profile, Post, LikePost, FollowersCount, Comment
 from itertools import chain
-import random
-
+from .forms import CommentForm
+import random 
 # Create your views here.
 
 @login_required(login_url='signin')
@@ -55,6 +56,26 @@ def index(request):
 
 
     return render(request, 'index.html', {'user_profile': user_profile, 'posts':feed_list, 'suggestions_username_profile_list': suggestions_username_profile_list[:4]})
+
+
+
+@login_required(login_url='signin')
+def explore(request):
+    # Get all posts from the database
+    feed_list = Post.objects.all()
+    
+    # Get user suggestions
+    user_following = FollowersCount.objects.filter(follower=request.user.username)
+    user_following_all = [User.objects.get(username=user.user) for user in user_following]
+    all_users = User.objects.all()
+    new_suggestions_list = [user for user in all_users if user not in user_following_all and user != request.user]
+    random.shuffle(new_suggestions_list)
+    suggestions_username_profile_list = Profile.objects.filter(user__in=new_suggestions_list)[:4]
+    
+    return render(request, 'explore.html', {'posts': feed_list, 'suggestions_username_profile_list': suggestions_username_profile_list})
+
+
+
 
 @login_required(login_url='signin')
 def upload(request):
@@ -245,3 +266,24 @@ def signin(request):
 def logout(request):
     auth.logout(request)
     return redirect('signin')
+
+def single_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    context = {'post': post}
+    return render(request, 'single_post.html', context)
+
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect(reverse('single_post', kwargs={'id': post_id}))
+    else:
+        form = CommentForm()
+
+    return render(request, 'single_post.html', {'post': post, 'form': form})

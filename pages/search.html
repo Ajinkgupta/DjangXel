@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<br/>
+  
+<div class="grid gap-6 mb-8 md:grid-cols-3"> 
+
+
+                    
+    {% for users in username_profile_list %}
+
+   <a  href="/profile/{{users.user}}"> 
+    <div class="max-w-md mx-auto bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden md:max-w-md">
+        <div class="md:flex">
+            <div class="w-full">
+              
+      
+             
+              <div>
+                
+                <img style="border-radius: 100%;" class="mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="{{users.profileimg.url}}" alt="John Doe" height="122px" width="126px">
+                          
+            </div>
+              <center> <div class="p-2 justify-center items-center dark:text-gray-400">
+                <div class="mb-4">
+                    <strong class="block text-lg">@{{users.user}}</strong>
+                    <p class="description">{{users.bio}}</p>
+                  </div>
+              </div>  </center>
+            
+              
+        </div>
+      </div>
+      </div>
+
+    </a>
+    {% endfor %}  
+
+
+ 
+</div>
+
+
+{% endblock %}
