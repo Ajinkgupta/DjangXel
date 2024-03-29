@@ -74,6 +74,12 @@ If you want to contribute to Djangxel, please follow these steps:
 5.  Run the tests to make sure everything works.
 6.  Create a pull request to merge your changes into the main branch.
 
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ajinkgupta/djangxel&type=Date)](https://star-history.com/#ajinkgupta/djangxel&Date)
+
 ## License
+
 
 Djangxel is released under the MIT License. See [LICENSE](https://github.com/ajinkgupta/djangxel/blob/main/LICENSE) for more information.
