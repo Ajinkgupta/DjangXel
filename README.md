@@ -4,7 +4,12 @@ Djangxel is a web-based photo-sharing platform built with Django, a high-level P
 
 ## Demo
 
-See a demo of Djangxel [here](https://djangxel.pythonanywhere.com/).
+See a live demo of Djangxel [here](https://djangxel.pythonanywhere.com/).
+
+
+## Video : https://youtu.be/c387g5jDLSs
+
+
 
 ## Fork
 
